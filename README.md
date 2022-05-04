@@ -72,6 +72,7 @@ pkg upgrade
 pkg update
 pkg install git
 pkg install python
+pkg install rust
 pip3 install requests pysocks
 git clone https://github.com/firstapostle/Aura-DDoS.git
 cd Aura-DDoS
