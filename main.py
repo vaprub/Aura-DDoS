@@ -150,6 +150,14 @@ def steal_proxies(site):
         return Error
 
 
+def count_proxies():
+    try:
+        proxies = sum(1 for line in open('proxy.txt', 'r'))
+        return proxies
+    except Exception as Error:
+        return Error
+
+
 def spoof(target):
     addr = [192, 168, 0, 1]
     d = '.'
@@ -1033,13 +1041,15 @@ def tools():
     stdout.write("             " + Fore.LIGHTCYAN_EX + "        ══╦═════════════════════════════════╦══\n")
     stdout.write("             " + Fore.LIGHTCYAN_EX + "╔═════════╩═════════════════════════════════╩═════════╗\n")
     stdout.write(
-        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + "geoip " + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Geo IP Address Lookup" + Fore.LIGHTCYAN_EX + "                     ║\n")
+        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + "geoip   " + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Geo IP Address Lookup" + Fore.LIGHTCYAN_EX + "                   ║\n")
     stdout.write(
-        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + "dns   " + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Classic DNS Lookup   " + Fore.LIGHTCYAN_EX + "                     ║\n")
+        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + "dns     " + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Classic DNS Lookup   " + Fore.LIGHTCYAN_EX + "                   ║\n")
     stdout.write(
-        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + "subnet" + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Subnet IP Address Lookup   " + Fore.LIGHTCYAN_EX + "               ║\n")
+        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + "subnet  " + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Subnet IP Address Lookup   " + Fore.LIGHTCYAN_EX + "             ║\n")
     stdout.write(
-        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + ".proxy" + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Get free proxies           " + Fore.LIGHTCYAN_EX + "               ║\n")
+        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + ".proxy  " + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Get free proxies           " + Fore.LIGHTCYAN_EX + "             ║\n")
+    stdout.write(
+        "             " + Fore.LIGHTCYAN_EX + "║ \x1b[38;2;255;20;147m• " + Fore.LIGHTWHITE_EX + ".proxies" + Fore.LIGHTCYAN_EX + "|" + Fore.LIGHTWHITE_EX + " Count proxies            " + Fore.LIGHTCYAN_EX + "               ║\n")
     stdout.write("             " + Fore.LIGHTCYAN_EX + "╚═════════════════════════════════════════════════════╝\n")
     stdout.write("\n")
 
@@ -1256,7 +1266,15 @@ def command():
                 else:
                     stdout.write(Fore.MAGENTA + " [>] " + Fore.RED + ' UNSUCCESSFUL ' + Fore.WHITE + site + '\n')
         except Exception as Error:
-            stdout.write(Fore.MAGENTA + " [>] " + Fore.MAGENTA + ".proxy command Error " + Fore.RED + f" [{Error}] " + '\n')
+            stdout.write(
+                Fore.MAGENTA + " [>] " + Fore.MAGENTA + ".proxy command Error " + Fore.RED + f" [{Error}] " + '\n')
+    elif command == '.proxies':
+        try:
+            pr = count_proxies()
+            stdout.write(Fore.MAGENTA + " [>] " + Fore.WHITE + " Proxies found: "  + Fore.GREEN + f"{pr}" + "\n")
+        except Exception as Error:
+            stdout.write(
+                Fore.MAGENTA + " [>] " + Fore.MAGENTA + ".proxies command Error " + Fore.RED + f" [{Error}] " + '\n')
     else:
         stdout.write(Fore.MAGENTA + " [>] " + Fore.WHITE + "Unknown command. type 'help' to see all commands.\n")
     ##############################################################################################
