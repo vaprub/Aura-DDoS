@@ -66,22 +66,7 @@ OR
 ```
 ## Usage on Termux
 ```sh
-Install
-======
-pkg upgrade
-pkg update
-pkg install git
-pkg install python
-pkg install rust
-pip3 install requests pysocks
-git clone https://github.com/firstapostle/Aura-DDoS.git
-cd Aura-DDoS
-pip3 install -r requirements.txt
-
-Run
-======
-cd Aura-DDoS
-python3 main.py
+!!!NOT WORKING ON TERMUX!!!
 
 ```
 ## Example
