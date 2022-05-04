@@ -44,6 +44,7 @@
  - Dns     | Classic DNS Lookup
  - Geoip   | Geo IP Address Lookup
  - Subnet  | Subnet IP Address Lookup
+ - .proxy  | Getting proxies into proxy.txt
 ```
 
 
